@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Pulse — Weekly AI Research Digest</title>
+  <meta name="description" content="Paper Pulse: 매주 가장 주목할 만한 AI 연구를 엄선하여 깊이 있게 분석합니다.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Critical inline styles for initial load */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        Paper Pulse
+      </div>
+      <div class="header-right">
+        <span class="header-date">2026년 3월 14일 &middot; Vol. 1</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+          &#x1F319;
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Weekly AI Research Digest
+      </div>
+      <h1 class="hero-title">이번 주 AI 연구의<br>최전선</h1>
+      <p class="hero-subtitle">
+        음성 인식의 새로운 패러다임부터 모바일 3D 렌더링,
+        자율 학습하는 에이전트까지 — 2026년 3월 둘째 주를
+        뜨겁게 달군 15편의 논문을 깊이 있게 분석합니다.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">15</div>
+          <div class="hero-stat-label">Papers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">9</div>
+          <div class="hero-stat-label">High Impact</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">5</div>
+          <div class="hero-stat-label">Categories</div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED ===== -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div class="section-label">Featured Research</div>
+      <h2 class="section-title">이번 주의 주목할 논문</h2>
+      <p class="section-subtitle">커뮤니티에서 가장 큰 반향을 일으킨 고영향력 연구를 선별했습니다.</p>
+    </div>
+    <div class="featured-grid reveal-stagger" id="featuredGrid">
+      <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <!-- ===== ALL PAPERS ===== -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div class="section-label">All Papers</div>
+      <h2 class="section-title">전체 논문 아카이브</h2>
+      <p class="section-subtitle">이번 주에 분석한 모든 논문을 한눈에 살펴보세요.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="filter-bar" id="categoryFilters"></div>
+      <div class="filter-bar" id="difficultyFilters"></div>
+    </div>
+
+    <div class="paper-grid reveal-stagger" id="paperGrid">
+      <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalContent">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Paper Pulse</div>
+      <p class="footer-text">
+        AI Research Team &middot; Weekly AI Research Digest<br>
+        데이터 출처: arXiv, Hugging Face Daily Papers, Hugging Face Trending<br>
+        2026년 3월 14일 생성
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
