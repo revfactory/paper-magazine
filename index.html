@@ -13,6 +13,9 @@
 </head>
 <body>
 
+  <!-- ===== SKIP TO CONTENT ===== -->
+  <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="header-inner">
@@ -38,7 +41,7 @@
         <span class="hero-badge-dot"></span>
         Weekly AI Research Digest
       </div>
-      <h1 class="hero-title">이번 주 AI 연구의<br>최전선</h1>
+      <h1 class="hero-title">이번 주 AI 연구의<br><span class="hero-accent">최전선</span></h1>
       <p class="hero-subtitle">
         음성 인식의 새로운 패러다임부터 모바일 3D 렌더링,
         자율 학습하는 에이전트까지 — 2026년 3월 둘째 주를
@@ -65,14 +68,42 @@
     </div>
   </section>
 
+  <div id="main-content">
+
+  <!-- ===== TRENDS ===== -->
+  <section class="section trends-section">
+    <div class="section-header reveal">
+      <div class="section-label">This Week's Keywords</div>
+      <h2 class="section-title">이번 주 AI 연구의 3가지 키워드</h2>
+    </div>
+    <div class="trends-grid reveal-stagger" id="trendsGrid">
+      <!-- Rendered by JS -->
+    </div>
+    <p class="trends-intro reveal" id="trendsIntro">
+      <!-- Rendered by JS -->
+    </p>
+  </section>
+
   <!-- ===== FEATURED ===== -->
   <section class="section">
     <div class="section-header reveal">
-      <div class="section-label">Featured Research</div>
-      <h2 class="section-title">이번 주의 주목할 논문</h2>
-      <p class="section-subtitle">커뮤니티에서 가장 큰 반향을 일으킨 고영향력 연구를 선별했습니다.</p>
+      <div class="section-label">Editor's Picks</div>
+      <h2 class="section-title">편집자가 주목한 논문</h2>
+      <p class="section-subtitle">단순한 인기 순위가 아닌, 편집자의 시선으로 고른 이번 주의 핵심 연구입니다.</p>
     </div>
     <div class="featured-grid reveal-stagger" id="featuredGrid">
+      <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <!-- ===== READING GUIDE ===== -->
+  <section class="section reading-guide-section">
+    <div class="section-header reveal">
+      <div class="section-label">Reading Guide</div>
+      <h2 class="section-title">어디서부터 읽을까?</h2>
+      <p class="section-subtitle">관심과 수준에 맞는 맞춤 코스를 따라가 보세요.</p>
+    </div>
+    <div class="reading-guides reveal" id="readingGuides">
       <!-- Rendered by JS -->
     </div>
   </section>
@@ -93,10 +124,17 @@
     <div class="paper-grid reveal-stagger" id="paperGrid">
       <!-- Rendered by JS -->
     </div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="empty-state-icon">&#x1F50D;</div>
+      <p class="empty-state-text">조건에 맞는 논문이 없습니다.</p>
+      <p class="empty-state-hint">필터를 조정해 보세요.</p>
+    </div>
   </section>
 
+  </div>
+
   <!-- ===== MODAL ===== -->
-  <div class="modal-overlay" id="modalOverlay">
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="논문 상세 보기">
     <div class="modal" id="modalContent">
       <!-- Rendered by JS -->
     </div>

@@ -347,25 +347,164 @@ const papers = [
   }
 ];
 
+// ===== EDITORIAL DATA =====
+const editorial = {
+  weekly_narrative: {
+    headline: "3D, 효율, 에이전트 — 세 갈래로 뻗는 AI",
+    subheadline: "이번 주 15편의 논문이 그리는 AI 연구의 지형도",
+    intro: "이번 주 AI 연구는 세 가지 뚜렷한 물줄기를 따라 흘렀습니다. 첫째, 3D 공간을 이해하고 재구성하는 기술이 폭발적으로 쏟아졌습니다. 둘째, 거대한 모델을 더 작고 빠르게 만드는 '효율성 혁명'이 가속화되었습니다. 셋째, AI 에이전트가 단순한 도구를 넘어 스스로를 평가하고 학습하는 '자각'의 단계로 진입하고 있습니다. 이 세 갈래는 독립적으로 보이지만, 결국 하나의 목표 — 현실 세계에서 작동하는 AI — 로 수렴합니다.",
+    trends: [
+      {
+        id: "trend-1",
+        title: "3D의 민주화",
+        subtitle: "누구나 3D를 다루는 시대",
+        description: "비디오 깊이 추정(DVD), 스트리밍 공간 지능(Spatial-TTT), 모바일 3D 렌더링(Mobile-GS), 자동 3D 데이터 생성(Holi-Spatial)까지 — 이번 주만 5편의 논문이 3D를 더 쉽고 빠르게 만드는 데 도전했습니다. 3D는 더 이상 전문가의 영역이 아닙니다.",
+        paper_ids: [2, 3, 10, 12, 14],
+        icon_suggestion: "\uD83D\uDD2E"
+      },
+      {
+        id: "trend-2",
+        title: "작지만 강한",
+        subtitle: "효율이 곧 실력인 시대",
+        description: "4B로 14B를 이기고(InternVL-U), 인덱서 75%를 꺼도 성능을 유지하며(IndexCache), 840MB를 4.6MB로 압축합니다(Mobile-GS). '크면 강하다'는 공식이 무너지고, 효율성이 새로운 경쟁력이 되었습니다.",
+        paper_ids: [6, 7, 14, 1, 4],
+        icon_suggestion: "\u26A1"
+      },
+      {
+        id: "trend-3",
+        title: "에이전트의 자각",
+        subtitle: "AI가 스스로를 돌아보다",
+        description: "에이전트가 대화하며 실시간으로 학습하고(OpenClaw-RL), 화면 녹화만으로 다른 에이전트를 심판하며(ExeVRM), 문서 탐색의 전략적 한계가 적나라하게 드러납니다(MADQA). AI 에이전트의 '메타인지' 시대가 열리고 있습니다.",
+        paper_ids: [5, 9, 13],
+        icon_suggestion: "\uD83C\uDFAF"
+      }
+    ],
+    closing: "3D가 민주화되고, 효율이 극대화되고, 에이전트가 자각하는 이번 주의 흐름은 결국 하나의 메시지를 전합니다 — AI는 더 이상 '할 수 있는가'의 문제가 아니라 '어떻게 현실에 녹아드는가'의 문제입니다. 다음 주에는 비디오 생성과 음성 합성 분야에서 더 많은 오픈소스 공세가 예상됩니다."
+  },
+  editors_picks: [
+    {
+      paper_id: 1,
+      pick_reason: "상용 시스템을 모두 능가하면서 완전 오픈소스로 공개한 결단이 인상적입니다. 기술적 완성도와 산업적 파급력, 그리고 '열린 혁신'이라는 가치까지 — 이번 주 가장 완벽한 패키지입니다.",
+      one_thing_to_remember: "오픈소스가 상용 시스템을 이길 수 있다는 것을 증명한 연구입니다."
+    },
+    {
+      paper_id: 6,
+      pick_reason: "모델 크기가 3.5배 차이나는데 더 작은 모델이 이기는 장면은 언제 봐도 통쾌합니다. 4B 모델로 이해부터 생성까지 한번에 — 이것이 '멀티모달 민주화'의 의미입니다.",
+      one_thing_to_remember: "이해와 생성의 시각 표현을 분리한 설계가 핵심 아이디어입니다."
+    },
+    {
+      paper_id: 5,
+      pick_reason: "에이전트와 대화하면서 동시에 훈련시킨다는 발상이 근본적으로 새롭습니다. 모든 상호작용이 학습 신호가 되는 세상 — 개인화 AI의 가장 현실적인 경로입니다.",
+      one_thing_to_remember: "비동기 아키텍처가 실시간 학습과 서빙의 동시 수행을 가능하게 합니다."
+    }
+  ],
+  paper_relations: [
+    { from_id: 2, to_id: 3, relation_type: "complementary", description: "DVD는 비디오 깊이를, Spatial-TTT는 공간 구조를 — 3D 이해의 서로 다른 층위를 공략합니다." },
+    { from_id: 3, to_id: 10, relation_type: "complementary", description: "Spatial-TTT의 스트리밍 공간 지능과 OmniStream의 범용 비전 백본은 실시간 3D 이해에서 보완적입니다." },
+    { from_id: 3, to_id: 12, relation_type: "same_trend", description: "Spatial-TTT와 Holi-Spatial 모두 '3D 공간 지능' 트렌드의 핵심 연구입니다." },
+    { from_id: 1, to_id: 4, relation_type: "same_trend", description: "음성 인식(FireRedASR2S)과 음성 합성(Fish Audio S2) — 음성 AI의 양대 축이 동시에 도약했습니다." },
+    { from_id: 6, to_id: 7, relation_type: "same_trend", description: "InternVL-U의 경량 멀티모달과 IndexCache의 추론 최적화 — '작지만 강한' 트렌드의 양면입니다." },
+    { from_id: 5, to_id: 9, relation_type: "complementary", description: "OpenClaw-RL이 에이전트를 '훈련'하고, ExeVRM이 에이전트를 '평가'합니다 — 에이전트 생태계의 두 축입니다." },
+    { from_id: 5, to_id: 13, relation_type: "contrasting", description: "OpenClaw-RL은 에이전트의 학습 가능성을, MADQA는 현재 에이전트의 한계를 보여줍니다 — 같은 주제, 반대 시선." },
+    { from_id: 11, to_id: 15, relation_type: "same_trend", description: "DreamVideo-Omni의 다중 인물 비디오 생성과 ShotVerse의 카메라 제어 — AI 영상 제작 혁명의 두 갈래입니다." },
+    { from_id: 8, to_id: 6, relation_type: "builds_on", description: "EndoCoT는 MLLM을 확산 모델과 결합하는데, InternVL-U의 통합 멀티모달 접근과 맥을 같이합니다." },
+    { from_id: 14, to_id: 12, relation_type: "complementary", description: "Holi-Spatial이 3D 데이터를 생산하고, Mobile-GS가 그것을 모바일에서 렌더링합니다 — 3D 파이프라인의 생산과 소비." }
+  ],
+  reading_guides: {
+    beginner: {
+      title: "입문자 추천 코스",
+      description: "AI 연구에 처음 관심 갖는 분을 위한 코스",
+      paper_ids: [4, 1, 6, 14],
+      rationale: "직관적으로 와닿는 음성/시각 분야부터 시작해서 점차 기술적 깊이를 더해갑니다. 모두 '중급' 난이도 논문으로 구성했습니다."
+    },
+    expert: {
+      title: "전문가 추천 코스",
+      description: "핵심만 빠르게 파악하고 싶은 연구자를 위한 코스",
+      paper_ids: [7, 3, 5, 2],
+      rationale: "이번 주 가장 기술적으로 깊은 논문들을 모았습니다. 추론 최적화에서 공간 지능, 에이전트 학습, 비디오 깊이까지 핵심만 훑어보세요."
+    }
+  }
+};
+
 // ===== CATEGORY MAP =====
 const categoryMap = {
-  "전체": null,
-  "컴퓨터 비전": "cat-cv",
-  "음성/오디오": "cat-speech",
-  "에이전트/NLP": "cat-nlp",
-  "멀티모달": "cat-multi"
+  "\uC804\uCCB4": null,
+  "\uCEF4\uD4E8\uD130 \uBE44\uC804": "cat-cv",
+  "\uC74C\uC131/\uC624\uB514\uC624": "cat-speech",
+  "\uC5D0\uC774\uC804\uD2B8/NLP": "cat-nlp",
+  "\uBA40\uD2F0\uBAA8\uB2EC": "cat-multi"
 };
 
 const difficultyMap = {
-  "전체": null,
-  "입문": "입문",
-  "중급": "중급",
-  "고급": "고급"
+  "\uC804\uCCB4": null,
+  "\uC785\uBB38": "\uC785\uBB38",
+  "\uC911\uAE09": "\uC911\uAE09",
+  "\uACE0\uAE09": "\uACE0\uAE09"
+};
+
+const relationLabels = {
+  complementary: "\uBCF4\uC644\uC801",
+  contrasting: "\uB300\uC870\uC801",
+  builds_on: "\uBC1C\uC804",
+  same_trend: "\uAC19\uC740 \uD2B8\uB80C\uB4DC"
 };
 
 // ===== STATE =====
 let activeCategory = null;
 let activeDifficulty = null;
+let activeTrend = null;
+let currentModalPaperId = null;
+
+// ===== UTILITY =====
+function parseUpvotes(source) {
+  const match = source.match(/(\d+)\s*upvotes/i);
+  if (match) return parseInt(match[1]);
+  const trendMatch = source.match(/#(\d+)/);
+  if (trendMatch) return null; // Trending rank, not upvotes
+  return null;
+}
+
+function getReadPapers() {
+  try {
+    return JSON.parse(localStorage.getItem('pp-read') || '[]');
+  } catch { return []; }
+}
+
+function markAsRead(id) {
+  const read = getReadPapers();
+  if (!read.includes(id)) {
+    read.push(id);
+    localStorage.setItem('pp-read', JSON.stringify(read));
+  }
+}
+
+function isRead(id) {
+  return getReadPapers().includes(id);
+}
+
+function getFilteredPapers() {
+  return papers.filter(p => {
+    if (activeCategory && p.category_class !== activeCategory) return false;
+    if (activeDifficulty && p.difficulty_level !== activeDifficulty) return false;
+    if (activeTrend) {
+      const trend = editorial.weekly_narrative.trends.find(t => t.id === activeTrend);
+      if (trend && !trend.paper_ids.includes(p.id)) return false;
+    }
+    return true;
+  });
+}
+
+function getEditorPick(paperId) {
+  return editorial.editors_picks.find(p => p.paper_id === paperId);
+}
+
+function getRelatedPapers(paperId) {
+  return editorial.paper_relations.filter(r => r.from_id === paperId || r.to_id === paperId).map(r => {
+    const relatedId = r.from_id === paperId ? r.to_id : r.from_id;
+    const relatedPaper = papers.find(p => p.id === relatedId);
+    return { ...r, relatedPaper, relatedId };
+  }).filter(r => r.relatedPaper);
+}
 
 // ===== THEME =====
 function initTheme() {
@@ -392,46 +531,125 @@ function updateThemeIcon() {
   btn.innerHTML = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
 }
 
+// ===== TRENDS SECTION =====
+function renderTrends() {
+  const container = document.getElementById('trendsGrid');
+  const intro = document.getElementById('trendsIntro');
+
+  container.innerHTML = editorial.weekly_narrative.trends.map(t => `
+    <div class="trend-card ${activeTrend === t.id ? 'active' : ''}" data-trend="${t.id}" tabindex="0" role="button" aria-pressed="${activeTrend === t.id}">
+      <span class="trend-icon">${t.icon_suggestion}</span>
+      <div class="trend-title">${t.title}</div>
+      <div class="trend-subtitle">${t.subtitle}</div>
+      <div class="trend-count">${t.paper_ids.length}\uD3B8\uC758 \uB17C\uBB38</div>
+    </div>
+  `).join('');
+
+  intro.textContent = editorial.weekly_narrative.intro;
+
+  container.addEventListener('click', e => {
+    const card = e.target.closest('.trend-card');
+    if (!card) return;
+    const trendId = card.dataset.trend;
+    activeTrend = activeTrend === trendId ? null : trendId;
+    renderTrends();
+    renderPaperGrid();
+  });
+
+  container.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.target.click();
+    }
+  });
+}
+
+// ===== READING GUIDE =====
+function renderReadingGuide() {
+  const container = document.getElementById('readingGuides');
+  const guides = [
+    { key: 'beginner', icon: '\uD83C\uDF31', iconClass: 'beginner', data: editorial.reading_guides.beginner },
+    { key: 'expert', icon: '\u26A1', iconClass: 'expert', data: editorial.reading_guides.expert }
+  ];
+
+  container.innerHTML = guides.map(g => `
+    <div class="guide-card">
+      <div class="guide-header">
+        <span class="guide-icon ${g.iconClass}">${g.icon}</span>
+        <h3 class="guide-title">${g.data.title}</h3>
+      </div>
+      <p class="guide-description">${g.data.description}</p>
+      <div class="guide-steps">
+        ${g.data.paper_ids.map((id, i) => {
+          const p = papers.find(x => x.id === id);
+          const arrow = i < g.data.paper_ids.length - 1 ? '<span class="guide-arrow">\u2192</span>' : '';
+          return `<span class="guide-step" onclick="openModal(${id})" tabindex="0" role="button"><span class="guide-step-number">${i + 1}</span>${p ? p.title.split(':')[0].split(' ').slice(0, 2).join(' ') : ''}</span>${arrow}`;
+        }).join('')}
+      </div>
+      <p class="guide-rationale">${g.data.rationale}</p>
+    </div>
+  `).join('');
+}
+
 // ===== FEATURED SECTION =====
 function renderFeatured() {
-  const featured = papers.filter(p => p.estimated_impact === 'high').slice(0, 3);
+  const picks = editorial.editors_picks;
   const container = document.getElementById('featuredGrid');
-  container.innerHTML = featured.map((p, i) => `
-    <div class="featured-card" onclick="openModal(${p.id})" style="${i === 0 ? 'grid-column: 1 / -1;' : ''}">
+
+  container.innerHTML = picks.map((pick, i) => {
+    const p = papers.find(x => x.id === pick.paper_id);
+    if (!p) return '';
+    return `
+    <div class="featured-card" onclick="openModal(${p.id})" ${i === 0 ? 'style="grid-column: 1 / -1;"' : ''}>
       <div class="featured-card-image">
         <img src="images/paper_${p.id}.png" alt="${p.title}" loading="lazy">
         <div class="featured-card-image-overlay"></div>
-        <span class="featured-card-impact">HIGH IMPACT</span>
+        <span class="featured-card-impact">EDITOR'S PICK</span>
       </div>
       <div class="featured-card-body">
         <h3 class="featured-card-title">${p.title}</h3>
         <p class="featured-card-oneliner">${p.one_liner}</p>
+        <div class="featured-card-pick">
+          <div class="featured-card-pick-label">\uD3B8\uC9D1\uC790\uC758 \uD55C\uB9C8\uB514</div>
+          <p class="featured-card-pick-text">${pick.pick_reason}</p>
+        </div>
         <div class="featured-card-meta">
           <div class="featured-card-tags">
             ${p.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join('')}
           </div>
-          <span class="reading-time">\u23F1 ${p.reading_time_min}분</span>
+          <span class="reading-time">\u23F1 ${p.reading_time_min}\uBD84</span>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 // ===== PAPER GRID =====
 function renderPaperGrid() {
   const container = document.getElementById('paperGrid');
-  const filtered = papers.filter(p => {
-    if (activeCategory && p.category_class !== activeCategory) return false;
-    if (activeDifficulty && p.difficulty_level !== activeDifficulty) return false;
-    return true;
-  });
+  const emptyState = document.getElementById('emptyState');
+  const filtered = getFilteredPapers();
 
-  container.innerHTML = filtered.map(p => `
+  if (filtered.length === 0) {
+    container.style.display = 'none';
+    emptyState.style.display = 'block';
+    return;
+  }
+
+  container.style.display = 'grid';
+  emptyState.style.display = 'none';
+
+  container.innerHTML = filtered.map(p => {
+    const upvotes = parseUpvotes(p.source);
+    const read = isRead(p.id);
+    return `
     <div class="paper-card" onclick="openModal(${p.id})">
       <div class="paper-card-image">
         <img src="images/paper_${p.id}.png" alt="${p.title}" loading="lazy">
         <span class="paper-card-category ${p.category_class}"></span>
         <span class="paper-card-difficulty difficulty-${p.difficulty_level}">${p.difficulty_level}</span>
+        ${upvotes ? `<span class="paper-card-signal">\uD83D\uDD25 ${upvotes}</span>` : ''}
+        ${read ? '<span class="paper-card-read">\u2713</span>' : ''}
       </div>
       <div class="paper-card-body">
         <h3 class="paper-card-title">${p.title}</h3>
@@ -440,13 +658,12 @@ function renderPaperGrid() {
           <div class="paper-card-tags">
             ${p.tags.slice(0, 2).map(t => `<span class="tag-sm">${t}</span>`).join('')}
           </div>
-          <span class="reading-time-sm">\u23F1 ${p.reading_time_min}분</span>
+          <span class="reading-time-sm">\u23F1 ${p.reading_time_min}\uBD84</span>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 
-  // Re-observe for animations
   observeElements();
 }
 
@@ -468,6 +685,8 @@ function initFilters() {
     catBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeCategory = btn.dataset.value || null;
+    activeTrend = null;
+    renderTrends();
     renderPaperGrid();
   });
 
@@ -486,6 +705,17 @@ function openModal(id) {
   const p = papers.find(x => x.id === id);
   if (!p) return;
 
+  currentModalPaperId = id;
+  markAsRead(id);
+
+  const filtered = getFilteredPapers();
+  const currentIndex = filtered.findIndex(x => x.id === id);
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex < filtered.length - 1;
+
+  const editorPick = getEditorPick(id);
+  const relatedPapers = getRelatedPapers(id);
+
   const sections = [
     { icon: '\uD83C\uDFAF', title: '\uBB38\uC81C \uC815\uC758', content: p.problem, cls: 'icon-problem' },
     { icon: '\u2699\uFE0F', title: '\uD575\uC2EC \uBC29\uBC95\uB860', content: p.method, cls: 'icon-method' },
@@ -497,11 +727,22 @@ function openModal(id) {
 
   const modal = document.getElementById('modalOverlay');
   document.getElementById('modalContent').innerHTML = `
-    <div class="modal-close">
-      <button class="modal-close-btn" onclick="closeModal()">\u2715</button>
+    <div class="modal-top-bar">
+      <div class="modal-nav">
+        <button class="modal-nav-btn" onclick="navigateModal(-1)" ${!hasPrev ? 'disabled' : ''} aria-label="\uC774\uC804 \uB17C\uBB38">\u2190</button>
+        <span class="modal-nav-counter">${currentIndex + 1} / ${filtered.length}</span>
+        <button class="modal-nav-btn" onclick="navigateModal(1)" ${!hasNext ? 'disabled' : ''} aria-label="\uB2E4\uC74C \uB17C\uBB38">\u2192</button>
+      </div>
+      <button class="modal-close-btn" onclick="closeModal()" aria-label="\uB2EB\uAE30">\u2715</button>
     </div>
     <img class="modal-image" src="images/paper_${p.id}.png" alt="${p.title}">
     <div class="modal-body">
+      ${editorPick ? `
+      <div class="modal-editor-pick">
+        <div class="modal-editor-pick-label">Editor's Pick</div>
+        <p class="modal-editor-pick-text">${editorPick.pick_reason}</p>
+        <p class="modal-editor-remember">\uD83D\uDCA1 ${editorPick.one_thing_to_remember}</p>
+      </div>` : ''}
       <h2 class="modal-title">${p.title}</h2>
       <p class="modal-oneliner">${p.one_liner}</p>
       <div class="modal-meta">
@@ -520,6 +761,22 @@ function openModal(id) {
           <p class="modal-section-content">${s.content}</p>
         </div>
       `).join('')}
+      ${relatedPapers.length > 0 ? `
+      <div class="modal-related">
+        <h3 class="modal-related-title">\uAD00\uB828 \uB17C\uBB38</h3>
+        <div class="modal-related-list">
+          ${relatedPapers.map(r => `
+            <div class="modal-related-item" onclick="event.stopPropagation(); openModal(${r.relatedId})" tabindex="0" role="button">
+              <span class="modal-related-badge relation-${r.relation_type}">${relationLabels[r.relation_type]}</span>
+              <div class="modal-related-text">
+                <div class="modal-related-paper-title">${r.relatedPaper.title}</div>
+                <div class="modal-related-desc">${r.description}</div>
+              </div>
+              <span class="modal-related-arrow">\u2192</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>` : ''}
       <div class="modal-tags">
         ${p.tags.map(t => `<span class="modal-tag">${t}</span>`).join('')}
         <span class="modal-tag difficulty-${p.difficulty_level}">${p.difficulty_level}</span>
@@ -529,11 +786,27 @@ function openModal(id) {
 
   modal.classList.add('active');
   document.body.classList.add('modal-open');
+
+  // Update grid to show read state
+  renderPaperGrid();
+
+  // Scroll modal to top
+  document.getElementById('modalContent').scrollTop = 0;
+}
+
+function navigateModal(direction) {
+  const filtered = getFilteredPapers();
+  const currentIndex = filtered.findIndex(x => x.id === currentModalPaperId);
+  const nextIndex = currentIndex + direction;
+  if (nextIndex >= 0 && nextIndex < filtered.length) {
+    openModal(filtered[nextIndex].id);
+  }
 }
 
 function closeModal() {
   document.getElementById('modalOverlay').classList.remove('active');
   document.body.classList.remove('modal-open');
+  currentModalPaperId = null;
 }
 
 // ===== INTERSECTION OBSERVER =====
@@ -556,6 +829,8 @@ function observeElements() {
 // ===== EVENT LISTENERS =====
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  renderTrends();
+  renderReadingGuide();
   renderFeatured();
   initFilters();
   renderPaperGrid();
@@ -564,23 +839,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Theme toggle
   document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
-  // Modal close
+  // Modal close on backdrop click
   document.getElementById('modalOverlay').addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
   });
 
-  // ESC key
+  // Keyboard navigation
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
+    if (currentModalPaperId !== null) {
+      if (e.key === 'ArrowLeft') navigateModal(-1);
+      if (e.key === 'ArrowRight') navigateModal(1);
+    }
   });
 
-  // Smooth scroll for header transparency
+  // Header scroll effect
   const header = document.querySelector('.header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.style.borderBottomColor = 'var(--border)';
-    } else {
-      header.style.borderBottomColor = 'transparent';
-    }
+    header.style.borderBottomColor = window.scrollY > 50 ? 'var(--border)' : 'transparent';
   });
 });
